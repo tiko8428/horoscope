@@ -4,7 +4,9 @@
   "scripts": {
     "start": "npx lerna exec -- npm run dev",
     "start:front": "npx lerna exec --scope @horoscope/front -- npm run dev",
-    "start:back": "npx lerna exec --scope @horoscope/back -- npm run dev"
+    "start:back": "npx lerna exec --scope @horoscope/back -- npm run dev",
+    "build:front": "npx lerna exec --scope @horoscope/front -- npm run build"
+    
   },
   "devDependencies": {
     "lerna": "^3.13.2"
