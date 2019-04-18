@@ -73,7 +73,12 @@ const DailyType = new GraphQLObjectType({
   name: "daily",
   description: "daily horoscope",
   fields: {
-    common: { type: Signs, resolve: () => dailyResolver() },
+    common: {
+      type: Signs,
+      resolve: () => {
+        return dailyResolver();
+      }
+    },
     business: { type: Signs },
     love: { type: Signs },
     car: { type: Signs },

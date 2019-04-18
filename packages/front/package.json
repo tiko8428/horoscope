@@ -6,16 +6,19 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "NODE_ENV=production node server.js",
-    "dev:next": "next",
+    "dev": "NODE_ENV=development node server.js",
+    "dev:test": "next",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "apollo-boost": "^0.3.1",
     "express": "^4.16.4",
+    "graphql": "^14.2.1",
+    "isomorphic-fetch": "^2.2.1",
     "next": "^8.0.4",
-    "package.json": "^2.0.1",
     "react": "^16.8.6",
+    "react-apollo": "^2.5.4",
     "react-dom": "^16.8.6",
     "react-fela": "^10.2.4"
   }

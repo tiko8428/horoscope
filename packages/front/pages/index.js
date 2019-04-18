@@ -1,23 +1,36 @@
-import Link from "next/link";
+import { withRouter } from "next/router";
 import { Layout } from "../components/layout";
 import { FelaComponent } from "react-fela";
-const PostLink = props => (
-  <li>
-    <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
-      <a> {props.title} </a>
-    </Link>
-  </li>
-);
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 
-const Index = () => (
-  <Layout>
-    <h1>Home page</h1>
-    <ul>
-      <PostLink id="111" title="Hello nextJs" />
-      <PostLink id="222" title="Learn Next.js is awesome" />
-      <PostLink id="333" title="Deploy apps with Zeit" />
-    </ul>
-  </Layout>
-);
+const TEST = gql`
+  {
+    weekly {
+      current {
+        aries {
+          common
+        }
+      }
+    }
+  }
+`;
 
-export default Index;
+const Index = props => {
+  const sign = props.router.query.sign;
+  return (
+    <Layout>
+      <h1>Home page</h1>
+      <Query query={TEST}>
+        {({ loading, error, data }) => {
+          if (loading) return <p>Loading...</p>;
+          if (error) return <p>Error :(</p>;
+
+          return <p>{data.weekly.current.aries.common}</p>;
+        }}
+      </Query>
+    </Layout>
+  );
+};
+
+export default withRouter(Index);

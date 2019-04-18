@@ -14,7 +14,6 @@ const WEEKLY_PAST_URL = "http://ignio.com/r/export/utf/xml/weekly/prev.xml";
 
 module.exports = {
   DAILY_COMMON_URL,
-
   WEEKLY_CURRENT_URL,
   WEEKLY_PAST_URL
 };

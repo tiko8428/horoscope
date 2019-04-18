@@ -1,24 +1,16 @@
 import Header from "./header";
+import { ApolloProvider } from "react-apollo";
+import client from "../apolloSetup";
 
 const styels = {
-  margin: "16px",
-  color: "#ccc",
-  fontSize: "25px",
-  border: "1px solid #DDD"
+  color: "#555"
 };
 
 export const Layout = props => (
-  <div style={styels}>
-    <Header />
-    {props.children}
-  </div>
-);
-
-export const wrapperLayout = Component => {
-  return () => (
+  <ApolloProvider client={client}>
     <div style={styels}>
       <Header />
-      <Component />
+      {props.children}
     </div>
-  );
-};
+  </ApolloProvider>
+);
